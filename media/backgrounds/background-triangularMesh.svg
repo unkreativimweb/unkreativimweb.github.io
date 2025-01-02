@@ -1,0 +1,41 @@
+<!-- DISCLAIMER: AI GENERATED -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Create a gradient that repeats -->
+    <linearGradient id="mesh-gradient" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+      <stop offset="0%" stop-color="#042081"/>
+      <stop offset="50%" stop-color="#080e2e"/>
+      <stop offset="100%" stop-color="#042081"/>
+    </linearGradient>
+    
+    <pattern id="trianglePattern" x="0" y="0" width="1920" height="1080" patternUnits="userSpaceOnUse">
+      <!-- Background gradient -->
+      <rect width="1920" height="1080" fill="url(#mesh-gradient)"/>
+      
+      <!-- Triangular mesh overlay with fade-out at bottom -->
+      <g opacity="0.5">
+        <!-- First Layer -->
+        <polygon points="0,0 640,0 320,360" fill="#bccad2">
+          <animate attributeName="opacity" values="0.5;0.5" dur="1s" repeatCount="indefinite"/>
+        </polygon>
+        <polygon points="640,0 1280,0 960,360" fill="#6f91b2"/>
+        <polygon points="1280,0 1920,0 1600,360" fill="#5b98d7"/>
+        
+        <!-- Second Layer -->
+        <polygon points="0,360 640,360 320,720" fill="#82afd6"/>
+        <polygon points="640,360 1280,360 960,720" fill="#1454a1"/>
+        <polygon points="1280,360 1920,360 1600,720" fill="#132c5b"/>
+        
+        <!-- Third Layer with gradient fade -->
+        <polygon points="0,720 640,720 320,1080" fill="#2c5c9c">
+          <animate attributeName="opacity" values="0.5;0.5" dur="1s" repeatCount="indefinite"/>
+        </polygon>
+        <polygon points="640,720 1280,720 960,1080" fill="#1d3d72"/>
+        <polygon points="1280,720 1920,720 1600,1080" fill="#122144"/>
+      </g>
+    </pattern>
+  </defs>
+  
+  <!-- Apply the pattern -->
+  <rect width="100%" height="100%" fill="url(#trianglePattern)"/>
+</svg>

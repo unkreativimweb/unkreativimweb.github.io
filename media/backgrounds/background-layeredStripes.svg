@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="stripe-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#042081"/>
+      <stop offset="100%" stop-color="#132c5b"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="1920" height="1080" fill="url(#stripe-gradient)"/>
+  
+  <!-- Layered diagonal stripes -->
+  <g opacity="0.4">
+    <rect x="0" y="0" width="1920" height="216" fill="#6f91b2"/>
+    <rect x="0" y="216" width="1920" height="216" fill="#82afd6"/>
+    <rect x="0" y="432" width="1920" height="216" fill="#5b98d7"/>
+    <rect x="0" y="648" width="1920" height="216" fill="#1454a1"/>
+    <rect x="0" y="864" width="1920" height="216" fill="#9c9495"/>
+  </g>
+</svg>

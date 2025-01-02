@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="landscape-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e2e"/>
+      <stop offset="100%" stop-color="#042081"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="1920" height="1080" fill="url(#landscape-gradient)"/>
+  
+  <!-- Abstract landscape shapes -->
+  <g opacity="0.5">
+    <path d="M0,800 Q480,500 960,700 T1920,600" fill="#6f91b2"/>
+    <path d="M0,900 Q480,600 960,800 T1920,700" fill="#82afd6"/>
+    <path d="M0,1000 Q480,700 960,900 T1920,800" fill="#5b98d7"/>
+  </g>
+  
+  <!-- Accent shapes -->
+  <circle cx="300" cy="300" r="150" fill="#bccad2" opacity="0.2"/>
+  <circle cx="1600" cy="200" r="100" fill="#1454a1" opacity="0.2"/>
+</svg>
