@@ -1,0 +1,684 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: monospace;
+    background-image: url(media/backgrounds/background-triangularMesh.svg);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    min-height: 100vh;
+}
+
+body.imprint {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    background-color: #05091b;
+    color: #6f91b2;
+    margin-top: 30%;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 75px;
+    margin-bottom: 1%;
+}
+
+h1.imprint {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+}
+
+#mainh2 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    /* color: white; */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+}
+
+p.sources {
+    margin-top: 5%;
+}
+
+p.funyjokehaha {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+}
+
+div.imprint {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FAFBFC;
+    color: rgba(85, 87, 88, 0.979);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    appearance: none;
+    box-shadow: rgba(27, 31, 35, 0.548) 0 1px 0; /*wowi*/
+    box-sizing: border-box;
+    border: 2px solid rgba(27, 31, 35, 0.548);
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* .button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+} */
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f0f0f0; */
+    text-align: center;
+    background-image: url("media/IMG_3723.JPEG"); /*url(backgrounds/background-abstractLandscape.svg) sieht hier auch echt nb aus*/
+    background-size: cover;
+    color: #e0e0e0;
+}
+
+.scroll-btn, #backup {
+    margin-top: 20px;
+}
+
+.disclaimer {
+    margin-top: -15vh;
+}
+
+.intro {
+    background-color: rgba(17, 132, 206, 0.84);
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2%;
+    font-size: 16px;
+}
+
+.all-redirects {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-image: url(media/backgrounds/background-abstractLandscape.svg); /*TODO: change bg*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.all-redirects > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; /* Adjust this value to control the space between anchors */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.redirects {
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    flex-direction: column;
+    background-color: #0056b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.redirects .material-symbols-outlined {
+    margin-bottom: 10px; /* Space between icon and text */
+    font-size: 70px; /* Adjust icon size as needed */
+    /* color: #05091b; */
+}
+
+.redirects:hover {
+    background-color: #9e9fff; /*TODO: change color to make it readable && good lookign gell*/
+    transform: scale(1.5);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.horCentered {
+    margin: auto;
+}
+
+.verCentered {
+    margin: 0, auto;
+}
+
+.centered {
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+    background-color: #080e2e;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the start */
+    min-height: 7%;
+    z-index: 999;
+}
+
+.footer {
+    background-color: #080e2e;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start; /* Aligns items to the start */
+    min-height: 7%;
+}
+
+.footer .socials {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Adds space between social icons */
+}
+
+
+/* css for documents */
+.allTexts {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.allTexts a {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 80vw;
+    margin: 10px;
+    background-color: rgba(0, 4, 34, 0.438);
+    overflow: hidden;
+}
+
+.previewOuter {
+    display: flex;
+    flex-direction: row; /* change to row-reverse for text on left*/
+    align-items: center;
+    gap: 100px; /* has to be changed for row reverse (<)*/
+}
+
+.individualText {
+    margin: 0;
+    text-align: left; /*when text on left then left else right/center*/
+    min-width: 150px;
+    left: 1vw;
+}
+
+.indivTextImg {
+    transition: transform .4s ease-out;
+    transform: rotate(18deg); /*scheiße ist das heiß*/
+    position: relative;
+    right: 16px;
+    top: 20px;
+    box-shadow: 15px 15px 25px 3px rgba(0, 0, 0, 0.514);
+    display: block; /*for overlfowl hiding*/
+    height: auto; /*damit ration same bleibt*/
+}
+
+.indivTextImg:hover { /*junge ist das geil wtf*/
+    transform: scale(1.5);
+    transition: all 0.4s ease;
+}
+/* end documents */
+
+/* for personal */
+body.personal {
+    overflow: hidden;
+}
+
+.personal .header {
+    position: absolute;
+    background: none;
+    max-height: 99vh;
+    pointer-events: none;
+}
+
+.personal .header a {
+    pointer-events: all;
+}
+
+.personal .info {
+    color: white;
+    height: 100px;
+}
+
+.overlay-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    pointer-events: none; /*ao u can interact with particle js*/
+}
+
+/* .overlay-container:hover {
+    pointer-events: auto;
+} */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    color: #000;
+    position: relative;
+    z-index: 1; /*TODO: do i rly need that?*/
+    pointer-events: all;
+    overflow: visible;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.card p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.label {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        margin: 10px;
+    }
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-top: 10px;
+}
+
+.legend.visible {
+    max-height: 100px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+    margin: 5px 0;
+}
+
+.legend-text {
+    font-size: .9em;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.internship-color { background-color: red; }
+.minijob-color { background-color: blue; }
+.holidayjob-color { background-color: green; }
+
+/* end personal */
+
+/* for projects */
+.project-container-overlay {
+    color: white;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.project-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project {
+    flex: 1;
+    height: 35vh;
+    width: 25vw;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+    border: 2px solid black;
+}
+
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.3) 16%,
+        rgba(0,0,0,0.95) 49%,
+        rgba(0,0,0,1) 66%
+    );
+    transition: opacity 0.3s ease;
+    /* z-index: 2 */
+}
+
+.project h2 {
+    margin-top: -50%; /* Position below the 20% image height */
+    margin-bottom: 1rem;
+}
+
+.project p {
+    margin: 1rem auto;
+    padding: 0 1rem;
+    max-width: 80%;
+}
+
+.project .logos {
+    position: relative;
+    display: flex;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    bottom: -105px; /*FIXME: has to be changed bc just working with 400px height pic*/
+    left: 10px;
+}
+
+.project h2,
+.project p,
+.project .logos {
+    position: relative;
+    z-index: 2;
+}
+
+.project .project-background {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    top: 0;
+    z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+    }
+    
+    .project-container-overlay {
+        width: 90%;
+    }
+} 
+
+.project:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+    color: black; /*TODO: change depending on bg*/
+}
+
+.project:hover::before {
+    opacity: 0;
+}
+/* end projects */
+
+
+/* for tools */
+.content {
+    margin-top: 100px;
+    color: white;
+}
+.content p {
+    margin-bottom: 5%;
+}
+.tool-overlay {
+    position: relative;
+    /* left: 30px; */ /*FIXME: cant get it centeredd*/
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Adjust columns to fit the container */
+    justify-content: center;
+    align-items: center;
+}
+.tool:hover {
+    text-decoration: none;
+}
+/* From Uiverse.io by SouravBandyopadhyay https://uiverse.io/SouravBandyopadhyay/giant-squid-24 */ 
+.tool-title {
+    color: #161616;
+    font-size: 1.5em;
+    line-height: normal;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+.small-desc {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #452c2c;
+}
+
+.small-desc {
+    font-size: 1em;
+}
+
+.go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #4a90e2, #2c3e50);
+    border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+}
+
+.tool {
+    display: block;
+    position: relative;
+    margin: 0;
+    max-width: 20vw;
+    height: 200px;
+    background-color: #f2f8f9;
+    /* background-image: url(https://placehold.co/600x400/orange/white?text=Placeholder\nPlaceholder\nPlaceholder\nPlaceholder); */
+    border-radius: 10px;
+    padding: 2em 1.2em;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #e8f4f8, #c5dde6);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.tool:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.35s ease-out;
+}
+
+.tool:hover:before {
+    transform: scale(28);
+}
+
+.tool:hover .small-desc {
+    transition: all 0.5s ease-out;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tool:hover .card-title {
+    transition: all 0.5s ease-out;
+    color: #ffffff;
+}
+  
+
+/* end tools */
+
+.outer{
+    width: 100vw;
+    height: 100vh;
+}
+.inner {
+    position: absolute;
+}
+
+#middleFooter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#GitHub {
+    position: absolute;
+    left: 10px;
+}
+
+#Instagram {
+    position: absolute;
+    left: 40px;
+}
+
+#backUp {
+    position: absolute;
+    bottom: 10%;
+    right: 4%;
+}
+
+#backToMain {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+/* particles.js */
+#particles-js {
+    background: #080e2e;
+    height: 100vh;
+}
+
+/* google fonts/icons */
+.material-symbols-outlined { /*TODO: IDONTGETTHEFUCKINGTHINGWORKING GRRRRRRRRRRRRRRRRRRRR*/
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0, 
+  'opsz' 24
+}
+
+/* 
+Color palette from background image main div:
+#bccad2
+#1454a1
+#6f91b2
+#080e2e
+#82afd6
+#132c5b
+#5b98d7
+#042081
+#9c9495
+*/

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132c5b"/>
+      <stop offset="100%" stop-color="#1454a1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="1920" height="1080" fill="url(#wave-gradient)"/>
+  
+  <!-- Wavy overlapping shapes -->
+  <path d="M0,300 Q480,150 960,300 T1920,200" fill="#6f91b2" opacity="0.4"/>
+  <path d="M0,400 Q480,250 960,400 T1920,300" fill="#82afd6" opacity="0.3"/>
+  <path d="M0,500 Q480,350 960,500 T1920,400" fill="#5b98d7" opacity="0.2"/>
+</svg>

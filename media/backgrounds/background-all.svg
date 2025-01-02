@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bccad2"/>
+      <stop offset="50%" stop-color="#132c5b"/>
+      <stop offset="100%" stop-color="#042081"/>
+    </linearGradient>
+    
+    <pattern id="geometric-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <polygon points="0,100 50,0 100,100 150,0 200,100" fill="#6f91b2" opacity="0.3"/>
+      <circle cx="100" cy="100" r="40" fill="#82afd6" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background with gradient -->
+  <rect width="1920" height="1080" fill="url(#bg-gradient)"/>
+  
+  <!-- Geometric pattern overlay -->
+  <rect width="1920" height="1080" fill="url(#geometric-pattern)" opacity="0.5"/>
+  
+  <!-- Accent shapes -->
+  <rect x="0" y="0" width="300" height="1080" fill="#1454a1" opacity="0.2"/>
+  <rect x="1620" y="0" width="300" height="1080" fill="#5b98d7" opacity="0.2"/>
+  
+  <!-- Subtle geometric elements -->
+  <circle cx="200" cy="200" r="100" fill="#9c9495" opacity="0.1"/>
+  <circle cx="1720" cy="880" r="150" fill="#080e2e" opacity="0.1"/>
+</svg>

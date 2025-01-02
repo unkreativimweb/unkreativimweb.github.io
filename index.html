@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vito Websky</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" /> -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    </head>
+    <body>
+        <div class="main" id="main">
+            <h1>Vito Websky</h1>
+            <div class="intro" id="intro">
+                Willkommen auf meiner Website!
+                <br> Hier finden Sie Informationen zu meinem Lebenslauf, meiner Motivation und meinen Projekten. 
+                <br> Als Schüler habe ich bereits viele Erfahrungen gesammelt, die ich hier mit Ihnen teilen möchte. 
+                <br> Erfahren Sie mehr über meine schulischen Leistungen, meine Interessen und die Projekte, an denen ich arbeite.
+                <br> Viel Spaß beim Entdecken!  
+                <br> 
+                <br> Vito Websky
+            </div>
+            <button class="scroll-btn" onclick="scrollToRedirects()">Entdecken!</button>
+        </div>
+    
+        <div class="all-redirects" id="allRedirects">  
+            <h2 id="mainh2">Einblicke - Wer ich bin & Was ich mache:</h2>
+            <div>
+                <a class="redirects" id="personal" href="redirects/personal.html"><span class="material-symbols-outlined">person</span>personal</a>
+                <a class="redirects" id="projects" href="redirects/projects.html"><span class="material-symbols-outlined">folder_match</span>projects</a>
+                <!-- <a class="redirects" id="skills" href="redirects/skills.html"><span class="material-symbols-outlined">clinical_notes</span>skills</a> -->
+                <a class="redirects" id="documents" href="redirects/documents.html"><span class="material-symbols-outlined">edit_document</span>documents</a>
+                <a class="redirects" id="gallery" href="redirects/gallery.html"><span class="material-symbols-outlined">gallery_thumbnail</span>gallery</a>
+                <a class="redirects" id="tools" href="redirects/tools.html"><span class="material-symbols-outlined">build</span>tools</a> <!-- tools evtl rauslassen   -->
+            </div>
+            
+            <button class="scroll-btn" id='backUp' onclick="scrollToMain()">Zurück</button>
+            <div class="footer">
+                <a class="socials" id="GitHub" href="https://github.com/unkreativimweb"><img class="socials" id="GitHub" src="https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF"></a>
+                <a class="socials" id="Instagram" href="https://www.instagram.com/vitoinseinemweb/"><img class="socials" id="Instagram" src="https://img.icons8.com/?size=100&id=32320&format=png&color=FFFFFF"></a>
+                <p id="middleFooter"><a href="mailto:vito.webskyx@gmail.com">Email</a>  | Phone: ask personally pls :D | <a href="imprint.html">© 2024</a></p>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
