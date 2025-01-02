@@ -308,7 +308,7 @@ body.personal {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
     max-width: 1200px;
     width: 100%;
@@ -325,6 +325,7 @@ body.personal {
     position: relative;
     z-index: 1; /*TODO: do i rly need that?*/
     pointer-events: all;
+    overflow: visible;
 }
 
 .card:hover {
@@ -359,6 +360,43 @@ body.personal {
         margin: 10px;
     }
 }
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-top: 10px;
+}
+
+.legend.visible {
+    max-height: 100px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+    margin: 5px 0;
+}
+
+.legend-text {
+    font-size: .9em;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.internship-color { background-color: red; }
+.minijob-color { background-color: blue; }
+.holidayjob-color { background-color: green; }
+
 /* end personal */
 
 /* for projects */

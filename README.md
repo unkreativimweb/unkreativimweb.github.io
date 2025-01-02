@@ -1,7 +1,18 @@
 # Personal Portfolio Website
 
 A modern and responsive personal portfolio website showcasing skills, projects, documents and a photo gallery.  
-*note: this project is not finished yet. Some external Resources may not be listed as of now but will be in th future*
+> ⚠️ This Site is not finished yet
+
+## Important Notice
+> ⚠️ This website was built for personal use and is heavily personalized. While you can use it as a template, significant modifications will be required:
+> - Personal information in `index.html`
+> - Project listings in `redirects/projects.html`
+> - Gallery content in `redirects/gallery.html`
+> - Tool configurations in `redirects/tools.html`
+> - Documents in `redirects/documents.html`
+> - Images in `media/gallery/`
+> - Social media links throughout
+
 
 ## Features
 
@@ -20,6 +31,9 @@ A modern and responsive personal portfolio website showcasing skills, projects, 
 - CSS3 with custom properties and animations
 - Vanilla JavaScript
 - [particles.js](https://github.com/VincentGarreau/particles.js/) for background effects
+- [pokedex-grid](https://github.com/jgrospe92/pokedex-grid) for the gallery (has been adjusted tho)
+- [placeholder](https://placehold.co) for unfinished sites
+- [tool-cards](https://uiverse.io/SouravBandyopadhyay/giant-squid-24) cards from uiverse 
 - Google Material Icons
 - External APIs:
   - Icons8 for social media icons
@@ -45,14 +59,15 @@ A modern and responsive personal portfolio website showcasing skills, projects, 
 ```
 
 ## Setup
+### Prerequisites
+- Basic understanding of HTML/CSS
+- Text editor (VS Code recommended)
+- Web browser
 
-1. Clone the repository
-2. Open 
-
-index.html
-
- in a web browser
-3. No build process or dependencies required
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/your-repo-name.git
 
 ## Browser Support
 
@@ -70,3 +85,6 @@ MIT License - feel free to use this code for your own projects.
 - particles.js by Vincent Garreau
 - Material Icons by Google
 - Social media icons by Icons8
+- Gallery layout based on [pokedex-grid](https://github.com/jgrospe92/pokedex-grid) by jgrospe92
+- Placeholder images provided by [placehold.co](https://placehold.co)
+- Tool cards design by [@jgrosdpe92](https://uiverse.io/SouravBandyopadhyay/giant-squid-24) from uiverse.io

@@ -17,16 +17,14 @@
         <div class="personal info centered outer" id="particles-js">
                 <div class="overlay-container inner">
                     <div class="grid-container">
-                        <!-- Personal Info -->
                         <div class="card" id="personalData">
                             <h2>Persönliche Daten</h2>
                             <p><span class="label">Name:</span> Vito Websky</p>
-                            <p><span class="label">Anschrift:</span> Auf der Höhe 4, 08060 Zwickau</p>
                             <p><span class="label">E-Mail:</span> vito.webskyx@gmail.com</p>
+                            <p><span class="label">Region:</span> 08060 Zwickau, Deutschland</p>
                             <p><span class="label">Geboren:</span> 24.01.2007 in Chemnitz</p>
                         </div>
 
-                        <!-- Education -->
                         <div class="card" id="school">
                             <h2>Schulbildung</h2>
                             <p><span class="label">Aktuell:</span> Käthe-Kollwitz-Gymnasium, Zwickau (seit 2017)</p>
@@ -35,17 +33,29 @@
                             <p><span class="label">2013-2015:</span> Grundschule Pleißa, Limbach-Oberfrohna</p>
                         </div>
 
-                        <!-- Work Experience -->
-                        <div class="card" id="workExperience">
+                        <div class="card" id="workExperience" onmouseover="showSpecificationsWork()" onmouseleave="hideSpecificationsWork()">
                             <h2>Berufliche Erfahrung</h2>
-                            <p>Netto Marken-Discount (31.01.-01.10.2024)</p>
-                            <p>Staffbase GmbH (09.10.-13.10.2023)</p>
-                            <p>iproplan Planungsgesellschaft mbH (14.08.-18.08.2023)</p>
-                            <p>Škoda Autohaus Müller KG (02.05.-13.05.2022)</p>
-                            <p>Westermann Druck Zwickau GmbH (14.02.-25.02.2022)</p>
+                            <p class="mini-job">Netto Marken-Discount (31.01.-01.10.2024)</p>
+                            <p class="internship">Staffbase GmbH (09.10.-13.10.2023)</p>
+                            <p class="internship">iproplan Planungsgesellschaft mbH (14.08.-18.08.2023)</p>
+                            <p class="internship">Škoda Autohaus Müller KG (02.05.-13.05.2022)</p>
+                            <p class="holiday-job">Westermann Druck Zwickau GmbH (14.02.-25.02.2022)</p>
+                            <div class="legend" id="workLegend">
+                                <div class="legend-item">
+                                    <span class="color-box minijob-color"></span>
+                                    <span class="legend-text">Minijob</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="color-box internship-color"></span>
+                                    <span class="legend-text">Praktikum</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="color-box holidayjob-color"></span>
+                                    <span class="legend-text">Ferienjob</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Skills -->
                         <div class="card" id="skills">
                             <h2>Kenntnisse</h2>
                             <p><span class="label">Lieblingsfächer:</span> Informatik, Mathematik, Geschichte</p>
@@ -53,8 +63,8 @@
                             <p><span class="label">PC-Kenntnisse:</span> MS Word, Excel, PowerPoint</p>
                             <p><span class="label">Programmierung:</span> HTML, JavaScript & CSS (Grundkenntnisse)</p>
                         </div>
-
-                        <!-- Additional Skills --> <!--FIXME: softskills raus sinnvolles rein-->
+                        
+                        <!--FIXME: softskills raus sinnvolles rein-->
                         <div class="card" id="additional">
                             <h2>Weitere Qualifikationen</h2>
                             <p><span class="label">Führerschein:</span> voraussichtlich März/April 2025</p>
@@ -62,7 +72,6 @@
                             <p><span class="label">Interessen:</span> Technologie, Software-Entwicklung, Mathematik</p>
                         </div>
 
-                        <!-- Future Goals -->
                         <div class="card" id="future">
                             <h2>Zukunftsziele</h2>
                             <p><span class="label">Studium:</span> Wirtschaftsinformatik-Studium</p>
@@ -75,6 +84,6 @@
         </div>
         <script src="..\media\backgrounds\particle\particles.js-master\particles.js"></script>
         <script src="..\media\backgrounds\particle\particles.js-master\demo\js\app.js"> </script>
-
+        <script src="..\script.js"></script>
     </body>
 </html>
