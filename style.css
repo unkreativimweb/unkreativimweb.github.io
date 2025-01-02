@@ -101,7 +101,7 @@ button:hover {
     align-items: center;
     /* background-color: #f0f0f0; */
     text-align: center;
-    background-image: url("C:/Users/Vito/Documents/code/my website/media/IMG_3723.JPEG"); /*url(backgrounds/background-abstractLandscape.svg) sieht hier auch echt nb aus*/
+    background-image: url("media/IMG_3723.JPEG"); /*url(backgrounds/background-abstractLandscape.svg) sieht hier auch echt nb aus*/
     background-size: cover;
     color: #e0e0e0;
 }
