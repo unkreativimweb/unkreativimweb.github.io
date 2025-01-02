@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-A modern and responsive personal portfolio website showcasing skills, projects, documents and a photo gallery.
+A modern and responsive personal portfolio website showcasing skills, projects, documents and a photo gallery.  
 *note: this project is not finished yet. Some external Resources may not be listed as of now but will be in th future*
 
 ## Features
