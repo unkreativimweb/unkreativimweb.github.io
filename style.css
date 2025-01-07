@@ -11,6 +11,14 @@ body {
     background-repeat: repeat-y;
     background-size: 100% auto;
     min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
 }
 
 body.imprint {
@@ -130,7 +138,7 @@ button:hover {
     align-items: center;
     text-align: center;
     position: relative;
-    background-image: url(media/backgrounds/background-abstractLandscape.svg); /*TODO: change bg*/
+    background-color: #080e2e;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -141,7 +149,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px; /* Adjust this value to control the space between anchors */
+    gap: 120px; /* Adjust this value to control the space between anchors */
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
@@ -163,19 +171,19 @@ button:hover {
 }
 
 .redirects:hover {
-    background-color: #9e9fff; /*TODO: change color to make it readable && good lookign gell*/
+    background-color: #9e9fff; 
     transform: scale(1.5);
     transition: all 0.2s ease;
     text-decoration: none;
 }
 
-.horCentered {
+/* .horCentered {
     margin: auto;
 }
 
 .verCentered {
     margin: 0, auto;
-}
+} */
 
 .centered {
     margin: auto;
@@ -214,6 +222,30 @@ button:hover {
     margin-right: 10px; /* Adds space between social icons */
 }
 
+/* .all-redirects canvas, .overlay {
+    position: absolute;
+} */
+
+.top2 {
+    margin-top: 3%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.right {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+}
+
+.verCenter{ /* not used */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;  /* Ensures container has height */
+}
 
 /* css for documents */
 .allTexts {
@@ -323,7 +355,7 @@ body.personal {
     transition: all 0.3s ease;
     color: #000;
     position: relative;
-    z-index: 1; /*TODO: do i rly need that?*/
+    z-index: 1;
     pointer-events: all;
     overflow: visible;
 }
@@ -416,7 +448,21 @@ body.personal {
     margin-top: 2rem;
 }
 
+.project-text {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+    padding: 0 1rem;
+    color: white;
+    /* Optional: prevent text selection */
+    user-select: none;
+}
+
 .project {
+    z-index: 1;
     flex: 1;
     height: 35vh;
     width: 25vw;
@@ -427,6 +473,11 @@ body.personal {
     background-position: center;
     transition: all 0.3s ease;
     border: 2px solid black;
+    max-height: 300px;
+    max-width: 500px;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project::before {
@@ -439,12 +490,31 @@ body.personal {
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0.3) 16%,
-        rgba(0,0,0,0.95) 49%,
-        rgba(0,0,0,1) 66%
+        rgba(0,0,0,0.4) 30%,
+        rgba(0,0,0,0.8) 60%,
+        rgba(0,0,0,0.95) 100%
     );
-    transition: opacity 0.3s ease;
-    /* z-index: 2 */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+}
+
+.project h2,
+.project p {
+    color: white;
+    transition: transform 0.4s ease-out, 
+                opacity 0.4s ease-out,
+                color 0.4s ease-out;
+    opacity: 0.9;
+}
+
+.project:hover h2,
+.project:hover p {
+    transform: translateY(-10px);
+    opacity: 1;
+    color: black;
 }
 
 .project h2 {
@@ -461,16 +531,16 @@ body.personal {
 .project .logos {
     position: relative;
     display: flex;
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    bottom: -105px; /*FIXME: has to be changed bc just working with 400px height pic*/
-    left: 10px;
+    z-index: 99;
+    width: 30px;
+    height: 30px;
+    bottom: 15px;
+    left: -50px;
 }
 
 .project h2,
 .project p,
-.project .logos {
+.project {
     position: relative;
     z-index: 2;
 }
@@ -496,7 +566,7 @@ body.personal {
 .project:hover {
     transform: scale(1.01);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
-    color: black; /*TODO: change depending on bg*/
+    color: black; 
 }
 
 .project:hover::before {
@@ -584,8 +654,6 @@ body.personal {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .tool:before {
     content: '';
     position: absolute;
@@ -614,8 +682,6 @@ body.personal {
     transition: all 0.5s ease-out;
     color: #ffffff;
 }
-  
-
 /* end tools */
 
 .outer{
@@ -626,6 +692,7 @@ body.personal {
     position: absolute;
 }
 
+/* shame on me for using ids in css */
 #middleFooter {
     position: absolute;
     left: 50%;
@@ -659,10 +726,22 @@ body.personal {
 #particles-js {
     background: #080e2e;
     height: 100vh;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.particles-js-canvas-el {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 /* google fonts/icons */
-.material-symbols-outlined { /*TODO: IDONTGETTHEFUCKINGTHINGWORKING GRRRRRRRRRRRRRRRRRRRR*/
+.material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
@@ -671,7 +750,7 @@ body.personal {
 }
 
 /* 
-Color palette from background image main div:
+Color palette:
 #bccad2
 #1454a1
 #6f91b2

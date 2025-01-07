@@ -1,7 +1,7 @@
-/* CREDITS:  @jgrosdpe92 on GitHub (https://github.com/jgrospe92/pokedex-grid) */
-
-
-/* FIXME: color isnt ready everywhere, background needs fixing */
+/* 
+  This is a modified version of the original gallery.css file from the pokedex-grid project.
+  The original file can be found @jgrosdpe92 on GitHub (https://github.com/jgrospe92/pokedex-grid)
+*/
 :root {
   --color-primary: #1454a1;
   --color-primary-dark: #080e2e;
