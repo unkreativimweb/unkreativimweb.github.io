@@ -15,12 +15,12 @@
             <div><a href="tools.html">nächste Seite --></a></div>
         </div>
         <div class="width100" style="margin-top: 2%;">
-            <button class="scroll-btn right" onclick="scrollToBegin()" style="position: relative;">zum beginn</button>
-            <div class="spanContainer" style="height: 500px;">
-                <div class="pausePlayBtn play">
-                    <span class="bar bar-1"></span>
-                    <span class="bar bar-2"></span>				
-                </div>
+            <div style="display: flex; justify-content: center; gap: 10px;">
+                <button class="scroll-btn" id="beginScroll" onclick="scrollToBegin()">zum beginn</button>
+                <button class="scroll-btn" id="toggleScroll" onclick="toggleScroll()" data-state="paused">
+                    <span class="play-text">▶ play</span>
+                    <span class="pause-text" style="display: none">⏸ pause</span>
+                </button>
             </div>
         </div>
             

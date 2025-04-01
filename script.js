@@ -47,26 +47,34 @@ if(slider){
         });
     }
     
-    const stopDragging = () => {
+    const stopDragging = (e) => {
+        if (!mouseDown) return;
+        
         breakAutoSlide = false;
-        log("breakAutoSlide" + breakAutoSlide);
-        if(!fullStop){
-            scrollAuto();
-        }
         mouseDown = false;
         slider.style.cursor = 'grab';
-        // Apply any remaining delta
+        
+        // Clear any pending frame updates
+        frameCounter = 0;
         if (accumulatedDelta !== 0) {
             slider.scrollLeft -= accumulatedDelta;
+            accumulatedDelta = 0;
         }
-        frameCounter = 0;
-        accumulatedDelta = 0;
-        console.log('stopDragging:', {
-            startX,
-            scrollLeft,
-            mouseX: e.pageX,
-            time: performance.now()
-        });
+    
+        // Update button state
+        const toggleButton = document.getElementById("toggleScroll");
+        if (toggleButton) {
+            toggleButton.dataset.state = 'paused';
+            toggleButton.textContent = '▶ play';
+        }
+    
+        // Remove mousemove listener temporarily to prevent ghost dragging
+        slider.removeEventListener('mousemove', move);
+        
+        // Re-add the listener after a short delay
+        setTimeout(() => {
+            slider.addEventListener('mousemove', move, { passive: false });
+        }, 50);
     }
         
     const move = (e) => {
@@ -127,10 +135,6 @@ function scrollToMain() {
     document.getElementById("main").scrollIntoView({ behavior: "smooth" });
 }
 // ^ is for scrolling in index.html
-
-function log(msg) {
-    console.log(msg);
-}
 
 // v is for the showing and hiding of the legend in personal.html
 function showSpecificationsWork() {
@@ -195,7 +199,7 @@ redirects.addEventListener('mousemove', function(e) {
     }
 });
 
-
+// FIXME: shit must be deleted, once the cursor is back ontop of page or make it universal for all of index.html
 function drawCircle(centerX, centerY) {
     const canvas = document.getElementById('canvas');
     const rect = canvas.getBoundingClientRect();
@@ -266,17 +270,22 @@ function scrollAuto() {
     
     autoSlideInterval = setInterval(() => {
         if (!breakAutoSlide) {
-            if(slider.scrollLeft != sliderWidth){
-                slider.scrollTo(slider.scrollLeft + 10, 0);
+            if(slider.scrollLeft < sliderWidth) {  // Changed from != to < to prevent overshoot
+                slider.scrollTo({
+                    left: slider.scrollLeft + 10,// Smaller increment for smoothness
+                    behavior: 'auto'  // Use 'auto' instead of default for better performance
+                });
             } else {
                 console.log('Auto slide reset');
-                scrollToBegin();
+                slider.scrollTo({
+                    left: 0,
+                    behavior: 'auto'
+                });
             }
         } else {
             clearInterval(autoSlideInterval);
-            console.log('Auto slide stopped');
         }
-    }, 15);
+    }, 5);  // Decreased interval from 15ms to 5ms for faster updates
 }
 // ^ is for auto scrolling in gallery.html
 
@@ -293,11 +302,93 @@ $('body').on('click', '.pausePlayBtn', function(e){
 	}
 });
 
+function toggleScroll() {
+    const button = document.getElementById('toggleScroll');
+    if (!button) return;
+    
+    if (button.dataset.state === 'paused') {
+        // Start scrolling
+        scrollAuto();
+        button.dataset.state = 'playing';
+        button.textContent = '⏸ pause';
+    } else {
+        // Stop scrolling
+        breakAutoSlide = true;
+        button.dataset.state = 'paused';
+        button.textContent = '▶ play';
+    }
+}
+// ^ is for play/pause button in gallery.html
+
 //FIXME: not working at all
 
-
+// for debugging
 function setZIndex(id, newIndex) {
     console.log(document.getElementById(id))
     let element = document.getElementById(id);
     element.style.setZIndex = newIndex;
 } 
+
+function getElementStyles(elementId) {
+    let element = document.getElementById(elementId);
+    if (!element) {
+        console.warn(`Element with ID "${elementId}" not found.`);
+        return [];
+    }
+    
+    let styles = [];
+    let computedStyle = window.getComputedStyle(element);
+    let defaultStyle = window.getComputedStyle(document.createElement(element.tagName));
+    
+    Array.from(computedStyle).forEach(prop => {
+        let computedValue = computedStyle.getPropertyValue(prop);
+        let defaultValue = defaultStyle.getPropertyValue(prop);
+        
+        if (computedValue !== defaultValue) {
+            styles.push({
+                property: prop,
+                value: computedValue,
+                defaultValue: defaultValue
+            });
+        }
+    });
+    
+    return styles;
+}
+
+function compareElementStyles(elementId1, elementId2) {
+    let styles1 = getElementStyles(elementId1);
+    let styles2 = getElementStyles(elementId2);
+    
+    let differences = [];
+    
+    // Check styles from first element
+    styles1.forEach(style1 => {
+        let matchingStyle = styles2.find(style2 => style2.property === style1.property);
+        if (!matchingStyle || matchingStyle.value !== style1.value) {
+            differences.push({
+                property: style1.property,
+                [elementId1]: style1.value,
+                [elementId2]: matchingStyle ? matchingStyle.value : 'not set'
+            });
+        }
+    });
+
+    // Check for styles in second element that aren't in first
+    styles2.forEach(style2 => {
+        let existsInFirst = styles1.some(style1 => style1.property === style2.property);
+        if (!existsInFirst) {
+            differences.push({
+                property: style2.property,
+                [elementId1]: 'not set',
+                [elementId2]: style2.value
+            });
+        }
+    });
+    
+    return differences;
+}
+
+function log(msg) {
+    console.log(msg);
+}

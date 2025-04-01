@@ -129,8 +129,33 @@ button:hover {
     color: #e0e0e0;
 }
 
+.scroll-btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid currentColor;
+    transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
 .scroll-btn, #backup {
     margin-top: 20px;
+}
+
+.pausePlayBtn {
+    width: 100px;
+    block-size: 33px;
+    border-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-end-end-radius: 3px;
+    border-end-start-radius: 3px;
+    border-start-start-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .disclaimer {
