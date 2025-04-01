@@ -19,16 +19,19 @@ function changeBackground(no){  //TODO: add posibility of changing other backgro
 }
 
 // for the gallery-dragging
+let fullStop;
 let mouseDown = false;
 let startX, scrollLeft;
 let lastX;
 let frameCounter = 0;
 let accumulatedDelta = 0;
-const FRAME_THRESHOLD = 25; //adjust this value, higher value means less frames
+const FRAME_THRESHOLD = 200; //adjust this value, higher value means less frames
 const slider = document.querySelector('#mz-gallery');
 
 if(slider){
     const startDragging = (e) => {
+        breakAutoSlide = true;
+        log("breakAutoSlide" + breakAutoSlide);
         mouseDown = true;
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
@@ -45,6 +48,11 @@ if(slider){
     }
     
     const stopDragging = () => {
+        breakAutoSlide = false;
+        log("breakAutoSlide" + breakAutoSlide);
+        if(!fullStop){
+            scrollAuto();
+        }
         mouseDown = false;
         slider.style.cursor = 'grab';
         // Apply any remaining delta
@@ -82,12 +90,12 @@ if(slider){
             frameCounter = 0;
             accumulatedDelta = 0;
         }
-        console.log('Move:', {
-            startX,
-            scrollLeft,
-            mouseX: e.pageX,
-            time: performance.now()
-        });
+        // console.log('Move:', {
+        //     startX,
+        //     scrollLeft,
+        //     mouseX: e.pageX,
+        //     time: performance.now()
+        // });
     }
     
     slider.addEventListener('mousedown', startDragging);
@@ -173,6 +181,7 @@ console.log('Element found:', redirects);
 redirects.addEventListener('mousemove', function(e) {
 
     try {
+        // console.log(redirects)
         var cursorX = e.clientX * 100 / redirects.offsetWidth;
         var cursorY = e.clientY * 100 / redirects.offsetHeight;
 
@@ -187,46 +196,108 @@ redirects.addEventListener('mousemove', function(e) {
 });
 
 
-// FIXME: the canvas is not correctly positioned (i think)
 function drawCircle(centerX, centerY) {
     const canvas = document.getElementById('canvas');
+    const rect = canvas.getBoundingClientRect();
 
-    if (!canvas) {
-        console.error('Canvas element not found!');
-        return;
-    } else {
-        console.log('Canvas element found:', canvas);
-    }
+    if (!canvas) return;
     
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
     const ctx = canvas.getContext('2d');
-    const radius = 10;
-    // let circle
     
-    // circle.style.left = centerX + 'px';
-    // circle.style.top = centerY + 'px';
-    // circle.style.display = 'block';
-
-    // context.beginPath();
-    // context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-    // context.fillStyle = 'green';
-    // context.fill();
-    // context.lineWidth = 5;
-    // context.strokeStyle = '#003300';
-    // context.stroke();
-
-    console.log('Drawing circle at:', {
-        x: centerX,
-        y: centerY
+    // Clear previous drawings
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Convert coordinates
+    const x = centerX - rect.left;
+    const y = centerY - rect.top;
+    
+    // Draw main circle
+    ctx.beginPath();
+    ctx.arc(x, y, 15, 0, 2 * Math.PI);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.fill();
+    
+    // Draw outer ring
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    // Draw small inner circle
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.fill();
+}
+// TODO: do in css maybe=? (Adds hover effects for redirects)
+document.querySelectorAll('.redirects').forEach(link => {
+    link.addEventListener('mouseenter', (e) => {
+        e.target.style.transform = 'scale(1.05)';
+        e.target.style.transition = 'all 0.3s ease';
+        e.target.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.3)';
     });
     
+    link.addEventListener('mouseleave', (e) => {
+        e.target.style.transform = 'scale(1)';
+        e.target.style.boxShadow = 'none';
+    });
+});
 
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "#000000";
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fill();
-    ctx.stroke();
+
+
+
+// button in gallery.html to scroll to the beginning
+function scrollToBegin() {
+    breakAutoSlide = true;
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
+    const slider = document.querySelector('#mz-gallery');
+    slider.scrollLeft = -100000;
 }
+
+function scrollAuto() {
+    const slider = document.querySelector('#mz-gallery');
+    const sliderWidth = slider.scrollWidth-500;
+    breakAutoSlide = false;
+    
+    autoSlideInterval = setInterval(() => {
+        if (!breakAutoSlide) {
+            if(slider.scrollLeft != sliderWidth){
+                slider.scrollTo(slider.scrollLeft + 10, 0);
+            } else {
+                console.log('Auto slide reset');
+                scrollToBegin();
+            }
+        } else {
+            clearInterval(autoSlideInterval);
+            console.log('Auto slide stopped');
+        }
+    }, 15);
+}
+// ^ is for auto scrolling in gallery.html
+
+// v is for play/pause button in gallery.html
+$('body').on('click', '.pausePlayBtn', function(e){
+    console.log("detected click");
+	e.preventDefault();
+	if ( $(this).hasClass('play') ) {
+		$(this).removeClass('play');
+		$(this).addClass('pause');
+	} else {
+		$(this).removeClass('pause');
+		$(this).addClass('play');
+	}
+});
+
+//FIXME: not working at all
+
+
+function setZIndex(id, newIndex) {
+    console.log(document.getElementById(id))
+    let element = document.getElementById(id);
+    element.style.setZIndex = newIndex;
+} 

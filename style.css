@@ -18,7 +18,22 @@ body {
 canvas {
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#canvas {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+#anchorHolder a {
+    z-index: 2;
 }
 
 body.imprint {
@@ -143,6 +158,7 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     color: white;
+    cursor: none;
 }
 
 .all-redirects > div {
@@ -151,6 +167,10 @@ button:hover {
     align-items: center;
     gap: 120px; /* Adjust this value to control the space between anchors */
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.all-redirects a {
+    cursor: none;
 }
 
 .redirects {
@@ -162,6 +182,8 @@ button:hover {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative; /* could be elimed */
 }
 
 .redirects .material-symbols-outlined {

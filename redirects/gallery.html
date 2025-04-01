@@ -14,10 +14,17 @@
             <div class="centered">Vito Webskys Galerie</div>
             <div><a href="tools.html">nächste Seite --></a></div>
         </div>
-        <div class="width100" style="margin-top: 2%;"> <!-- TODO: make button workable-->
-            <button class="scroll-btn right">return</button>
+        <div class="width100" style="margin-top: 2%;">
+            <button class="scroll-btn right" onclick="scrollToBegin()" style="position: relative;">zum beginn</button>
+            <div class="spanContainer" style="height: 500px;">
+                <div class="pausePlayBtn play">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>				
+                </div>
+            </div>
         </div>
             
+        </div>
         
          <!-- DO NOT ASK ABOUT THE FRAME DELAY I HAD TO IMPLEMENT IT SO IT RUNS TO SOME EXTENT OK (i am unwell) -->
         <div id="mz-gallery-container">
