@@ -1,3 +1,15 @@
+window.onload = (event) => {
+    console.log("page loaded")
+    checkUserDevice();
+};
+
+function checkUserDevice() {
+    let userAgent = window.navigator.userAgent;
+    if(userAgent.includes("Android")||userAgent.includes("iPhone")||userAgent.includes("iPad")||userAgent.includes("mobile")){
+        alert("THIS PAGE IS NOT YET OPTIMATED FOR MOBILE USAGE")
+    }
+}
+
 function changeBackground(no){  //TODO: add posibility of changing other backgrounds than allRedirects
     let allRedirects = document.getElementById("allRedirects");
     let backgroundImages = [
@@ -135,6 +147,93 @@ function scrollToMain() {
     document.getElementById("main").scrollIntoView({ behavior: "smooth" });
 }
 // ^ is for scrolling in index.html
+
+// v is for hovering with the funky cursor
+function cursorHover(element) {
+    // transform element
+    transform(element.id, "scale", 1.25)
+    
+    // Get cursorposition
+    var centerX = clientX * 100 / redirects.offsetWidth;
+    var centerY = clientY * 100 / redirects.offsetHeight;
+    
+    // for debug 
+    console.log("cursorHover")
+    
+
+    // Get canvas
+    const canvas = document.getElementById('canvas');
+    const rect = canvas.getBoundingClientRect();
+
+    if (!canvas) return;
+    
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    const ctx = canvas.getContext('2d');
+    
+    // Clear previous drawings
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Convert coordinates
+    const x = centerX - rect.left;
+    const y = centerY - rect.top;
+    
+    // Draw expanding ring
+    ctx.beginPath();
+    ctx.arc(x, y, 25, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    
+    // Draw cross in the middle
+    const crossSize = 8;
+    ctx.beginPath();
+    ctx.moveTo(x - crossSize, y);
+    ctx.lineTo(x + crossSize, y);
+    ctx.moveTo(x, y - crossSize);
+    ctx.lineTo(x, y + crossSize);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    // Draw small dots at cross endpoints
+    const dotSize = 2;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+    ctx.beginPath();
+    ctx.arc(x - crossSize, y, dotSize, 0, 2 * Math.PI);
+    ctx.arc(x + crossSize, y, dotSize, 0, 2 * Math.PI);
+    ctx.arc(x, y - crossSize, dotSize, 0, 2 * Math.PI);
+    ctx.arc(x, y + crossSize, dotSize, 0, 2 * Math.PI);
+    ctx.fill();
+}
+
+function cursorNormal(element) {
+    transform(element.id, "scale", 1)
+    drawCircle();
+}
+// ^ is for hovering with the funky cursor
+
+function transform(elementID, spec, value) {
+    if (!elementID || !spec) {
+        console.warn('Missing required parameters for transform function');
+        return;
+    }
+
+    const element = document.getElementById(elementID);
+    if (!element) {
+        console.warn(`Element with ID "${elementID}" not found`);
+        return;
+    }
+
+    // apply smooth transitioning
+    element.style.transition = 'transform 0.3s ease';
+
+    // Format the transform property correctly
+    const transformValue = value ? `${spec}(${value})` : spec;
+    console.log('Applying transform:', transformValue);
+    
+    element.style.transform = transformValue;
+}
 
 // v is for the showing and hiding of the legend in personal.html
 function showSpecificationsWork() {
