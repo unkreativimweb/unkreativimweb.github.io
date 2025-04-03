@@ -67,7 +67,7 @@ A modern and responsive personal portfolio website showcasing skills, projects, 
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/unkreativimweb/unkreativimweb.github.io.git
 
 ## Browser Support
 
