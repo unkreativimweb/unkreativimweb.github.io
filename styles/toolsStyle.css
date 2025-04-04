@@ -1,23 +1,30 @@
-/* for tools */
 .content {
     margin-top: 100px;
     color: white;
-}
-.content p {
-    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 .tool-overlay {
     position: relative;
-    /* left: 30px; */ /*FIXME: cant get it centeredd*/
-    width: 100%;
+    width: 90%; /* not 100 to prevent overflow */
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Adjust columns to fit the container */
+    grid-template-columns: repeat(4, minmax(350px, 1fr)); /* Adjust columns to fit the container */
     justify-content: center;
     align-items: center;
+    max-width: 1200px;  /* Prevents too wide layout on large screens */
+    gap: 40px;  /* Added consistent spacing */
+    margin: 0 auto;  /* Centers the grid horizontally */
+    padding: 20px;   /* Added padding for breathing room */
 }
 .tool:hover {
     text-decoration: none;
 }
+.headerTools {
+    margin-bottom: 50px;
+}
+
 /* From Uiverse.io by SouravBandyopadhyay https://uiverse.io/SouravBandyopadhyay/giant-squid-24 */ 
 .tool-title {
     color: #161616;
@@ -62,8 +69,6 @@
 .tool {
     display: block;
     position: relative;
-    margin: 0;
-    max-width: 20vw;
     height: 200px;
     background-color: #f2f8f9;
     /* background-image: url(https://placehold.co/600x400/orange/white?text=Placeholder\nPlaceholder\nPlaceholder\nPlaceholder); */
@@ -75,6 +80,8 @@
     overflow: hidden;
     background: linear-gradient(to bottom, #e8f4f8, #c5dde6);
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 100%;  /* Changed from 20vw to be more responsive */
+    margin: 0;  /* Remove conflicting margins */
 }
 
 .tool:before {
@@ -105,4 +112,93 @@
     transition: all 0.5s ease-out;
     color: #ffffff;
 }
-/* end tools */
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 10px;
+        font-size: 14px;
+        position: fixed;
+        width: 100%;
+        background: #080e2e;
+        z-index: 100;
+    }
+
+    .content {
+        margin-top: 80px;
+        padding: 10px;
+    }
+
+    .headerTools {
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .headerTools h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .headerTools p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .tool-overlay {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .tool {
+        height: auto;
+        min-height: 180px;
+        padding: 1.5em 1em;
+        margin: 0;
+    }
+
+    .tool-title {
+        font-size: 1.2em;
+        margin-bottom: 0.3em;
+    }
+
+    .small-desc {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    .go-corner {
+        width: 1.8em;
+        height: 1.8em;
+    }
+
+    .go-arrow {
+        font-size: 0.9em;
+    }
+}
+
+/* For even smaller screens */
+@media screen and (max-width: 480px) {
+    .header {
+        font-size: 12px;
+    }
+
+    .headerTools h1 {
+        font-size: 24px;
+    }
+
+    .tool {
+        min-height: 160px;
+        padding: 1.2em 0.8em;
+    }
+
+    .tool-title {
+        font-size: 1.1em;
+    }
+
+    .small-desc {
+        font-size: 0.85em;
+    }
+}

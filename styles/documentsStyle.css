@@ -49,4 +49,58 @@
     transform: scale(1.5);
     transition: all 0.4s ease;
 }
-/* end documents */
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .allTexts {
+        margin-top: 70px;  /* Account for fixed header */
+        padding: 10px;
+    }
+
+    .allTexts a {
+        height: 150px;  /* Smaller height on mobile */
+        max-width: 95vw;  /* Almost full width */
+        margin: 8px 0;
+    }
+
+    .previewOuter {
+        flex-direction: column;  /* Stack items vertically */
+        gap: 15px;  /* Reduce gap */
+        padding: 10px;
+    }
+
+    .individualText {
+        text-align: center;  /* Center text on mobile */
+        min-width: 100px;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .indivTextImg {
+        transform: rotate(0deg);  /* Remove rotation on mobile */
+        right: 0;
+        top: 0;
+        width: auto;
+        max-height: 120px;  /* Limit image height */
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .indivTextImg:hover {
+        transform: scale(1.2);  /* Smaller scale on mobile */
+    }
+}
+
+/* For even smaller screens */
+@media screen and (max-width: 480px) {
+    .allTexts a {
+        height: 130px;
+    }
+
+    .individualText {
+        font-size: 13px;
+    }
+
+    .indivTextImg {
+        max-height: 100px;
+    }
+}

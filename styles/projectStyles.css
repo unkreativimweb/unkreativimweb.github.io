@@ -9,10 +9,13 @@
 
 .project-container {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
+    padding: 20px;
+    margin: 0 auto;
 }
 
 .project-text {
@@ -24,13 +27,12 @@
     text-align: center;
     padding: 0 1rem;
     color: white;
-    /* Optional: prevent text selection */
     user-select: none;
 }
 
 .project {
     z-index: 1;
-    flex: 1;
+    flex: 0 1 calc(33% - 20px);
     height: 35vh;
     width: 25vw;
     position: relative;
@@ -77,11 +79,15 @@
     opacity: 0.9;
 }
 
+/* FIXME: not working, i want the colors to change depending on the background color */
+.project #TicTacToe:hover {
+    color: black;
+}
+
 .project:hover h2,
 .project:hover p {
     transform: translateY(-10px);
     opacity: 1;
-    color: black;
 }
 
 .project h2 {
@@ -139,4 +145,44 @@
 .project:hover::before {
     opacity: 0;
 }
-/* end projects */
+
+
+@media screen and (max-width: 768px) {
+    
+    
+    .project-container-overlay {
+        padding: 0;
+    }
+    
+    .project {
+        width: 100%;  /* Nearly full width on mobile */
+        height: 250px;  /* Fixed height */
+        flex: 0 1 100%;  /* Take full width in flex container */
+        margin: 0 auto;  /* Center the cards */
+        max-width: none;  /* Override max-width for mobile */
+        font-size: xx-small;  /* FIXME: not working*/
+    }
+
+    .project-container {
+        margin-top: 20px;
+        padding: 10px;
+        gap: 1rem;  /* Reduce gap between cards */
+    }
+
+    .project h2 {
+        font-size: 1.2rem;  /* Smaller heading on mobile */
+        margin-top: -40%;  /* Adjust text position */
+    }
+
+    .project p {
+        font-size: 0.9rem;  /* Smaller text on mobile */
+        padding: 0 0.5rem;
+    }
+}
+
+/* For even smaller screens */
+@media screen and (max-width: 480px) {
+    .project {
+        height: 200px;  /* Even smaller height */
+    }
+}

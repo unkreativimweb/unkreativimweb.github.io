@@ -107,6 +107,7 @@
     background-repeat: no-repeat;
     color: white;
     cursor: none;
+    user-select: none;
 }
 
 .all-redirects > div {
