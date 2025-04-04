@@ -1,0 +1,52 @@
+/* css for documents */
+.allTexts {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.allTexts a {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 80vw;
+    margin: 10px;
+    background-color: rgba(0, 4, 34, 0.438);
+    overflow: hidden;
+}
+
+.previewOuter {
+    display: flex;
+    flex-direction: row; /* change to row-reverse for text on left*/
+    align-items: center;
+    gap: 100px; /* has to be changed for row reverse (<)*/
+}
+
+.individualText {
+    margin: 0;
+    text-align: left; /*when text on left then left else right/center*/
+    min-width: 150px;
+    left: 1vw;
+}
+
+.indivTextImg {
+    transition: transform .4s ease-out;
+    transform: rotate(18deg); /*scheiße ist das heiß*/
+    position: relative;
+    right: 16px;
+    top: 20px;
+    box-shadow: 15px 15px 25px 3px rgba(0, 0, 0, 0.514);
+    display: block; /*for overlfowl hiding*/
+    height: auto; /*damit ration same bleibt*/
+}
+
+.indivTextImg:hover { /*junge ist das geil wtf*/
+    transform: scale(1.5);
+    transition: all 0.4s ease;
+}
+/* end documents */

@@ -335,19 +335,20 @@ function drawCircle(centerX, centerY) {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
     ctx.fill();
 }
+// TODO: leave it out entirelyy? 
 // TODO: do in css maybe=? (Adds hover effects for redirects)
-document.querySelectorAll('.redirects').forEach(link => {
-    link.addEventListener('mouseenter', (e) => {
-        e.target.style.transform = 'scale(1.05)';
-        e.target.style.transition = 'all 0.3s ease';
-        e.target.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.3)';
-    });
+// document.querySelectorAll('.redirects').forEach(link => {
+//     link.addEventListener('mouseenter', (e) => {
+//         e.target.style.transform = 'scale(1.05)';
+//         e.target.style.transition = 'all 0.3s ease';
+//         e.target.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.3)';
+//     });
     
-    link.addEventListener('mouseleave', (e) => {
-        e.target.style.transform = 'scale(1)';
-        e.target.style.boxShadow = 'none';
-    });
-});
+//     link.addEventListener('mouseleave', (e) => {
+//         e.target.style.transform = 'scale(1)';
+//         e.target.style.boxShadow = 'none';
+//     });
+// });
 
 
 
@@ -491,3 +492,6 @@ function compareElementStyles(elementId1, elementId2) {
 function log(msg) {
     console.log(msg);
 }
+
+
+//TODO: WHEN HOVERING A REDIRECT; I WANT PARTICLE:JS TO REACT SOMEHOW

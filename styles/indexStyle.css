@@ -1,0 +1,175 @@
+#middleFooter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#GitHub {
+    position: absolute;
+    left: 10px;
+}
+
+#Instagram {
+    position: absolute;
+    left: 40px;
+}
+
+#backUp {
+    position: absolute;
+    bottom: 10%;
+    right: 4%;
+}
+
+#mainh2 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    /* color: white; */
+}
+#anchorHolder a {
+    z-index: 2;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f0f0f0; */
+    text-align: center;
+    background-image: url("../media/IMG_3723.JPEG"); /*url(backgrounds/background-abstractLandscape.svg) sieht hier auch echt nb aus*/
+    background-size: cover;
+    color: #e0e0e0;
+}
+.intro {
+    background-color: rgba(17, 132, 206, 0.84);
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2%;
+    font-size: 16px;
+}
+.scroll-btn {
+    /* padding: 8px 16px; */
+    cursor: pointer;
+    border: none;
+    color: rgb(145, 156, 177);
+    transition: all 0.3s ease;
+    cursor: none;
+    background: transparent;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    background: #033f7f80;
+    border: 1px solid rgb(145, 156, 177);
+}
+
+.scroll-btn, #backup {
+    margin-top: 20px;
+}
+#discover-btn {
+    cursor: pointer;
+    background: transparent;
+    color: #e0e0e0;
+    border: 2px solid #1454a1;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+#discover-btn:hover {
+    background: rgba(17, 132, 206, 0.84);
+    color: white;
+    box-shadow: 0 0 15px rgba(20, 84, 161, 0.5);
+    transform: translateY(-2px);
+}
+
+#discover-btn:active {
+    transform: translateY(0px);
+}
+
+.all-redirects {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-color: #080e2e;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    cursor: none;
+}
+
+.all-redirects > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px; /* Adjust this value to control the space between anchors */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.all-redirects a {
+    cursor: none;
+}
+
+.redirects {
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    flex-direction: column;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative; /* could be elimed */
+}
+
+.redirects .material-symbols-outlined {
+    margin-bottom: 10px; /* Space between icon and text */
+    font-size: 70px; /* Adjust icon size as needed */
+    /* color: #05091b; */
+}
+
+.redirects:hover {
+    background: radial-gradient(circle at center, 
+        #1454a1 0%,      /* Solid center color */
+        #1454a190 15%,   /* Start fading earlier at 15% */
+        #1454a140 40%,   /* More transparent at 40% */
+        #03178600 60%    /* Fully transparent at 60% */
+    );
+    transform: scale(2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: none;  /* Remove the blur effect */
+    box-shadow: none;      /* Ensure no box shadow */
+    -webkit-box-shadow: none;  /* For Safari */
+}
+
+.footer {
+    background-color: #080e2e;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start; /* Aligns items to the start */
+    min-height: 7%;
+}
+
+.footer .socials {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* Adds space between social icons */
+}

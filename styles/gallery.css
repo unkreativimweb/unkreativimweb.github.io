@@ -20,7 +20,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 body,
@@ -420,6 +420,19 @@ img {
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
+}
+
+.pausePlayBtn {
+  width: 100px;
+  block-size: 33px;
+  border-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-end-end-radius: 3px;
+  border-end-start-radius: 3px;
+  border-start-start-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .pausePlayBtn {

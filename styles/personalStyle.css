@@ -1,0 +1,126 @@
+/* for personal */
+body.personal {
+    overflow: hidden;
+}
+
+.personal .header {
+    position: absolute;
+    background: none;
+    max-height: 99vh;
+    pointer-events: none;
+}
+
+.personal .header a {
+    pointer-events: all;
+}
+
+.personal .info {
+    color: white;
+    height: 100px;
+}
+
+.overlay-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    pointer-events: none; /*ao u can interact with particle js*/
+}
+
+/* .overlay-container:hover {
+    pointer-events: auto;
+} */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    pointer-events: all;
+    overflow: visible;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.card p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.label {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-top: 10px;
+}
+
+.legend.visible {
+    max-height: 100px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+    margin: 5px 0;
+}
+
+.legend-text {
+    font-size: .9em;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.internship-color { background-color: red; }
+.minijob-color { background-color: blue; }
+.holidayjob-color { background-color: green; }
+
+.outer{
+    width: 100vw;
+    height: 100vh;
+}
+.inner {
+    position: absolute;
+}
